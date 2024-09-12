@@ -98,8 +98,8 @@ class Library{
         }  
     }
     public void DeleteUser(Guid id){
-        if(users.All(i => i.Id == id)){
-            Users findUser = users.Find(i => i.Id == id);
+        Users findUser = users.Find(i => i.Id == id);
+        if(findUser != null){
             users.Remove(findUser);
             Console.WriteLine($"User removed"); 
         }else{
@@ -107,8 +107,8 @@ class Library{
         }    
     }
     public void DeleteBook(Guid id){
-        if(books.All(i => i.Id == id)){
-            Books findBook = books.Find(i => i.Id == id);
+        Books findBook = books.Find(i => i.Id == id);
+        if(findBook != null){
             books.Remove(findBook);
             Console.WriteLine($"Book removed");    
         }else{
