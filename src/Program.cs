@@ -3,13 +3,9 @@
     DateTime createdDate;
     public Guid Id{ get; set; }
     public DateTime CreatedDate{ get; set; }
-    public Info(DateTime? createdDate){
+    public Info(DateTime? createdDate = null){
         Id = Guid.NewGuid(); 
-        if(createdDate != null){
-            CreatedDate = (DateTime)createdDate;
-        }else{
-          CreatedDate = DateTime.Now;  
-        }       
+        CreatedDate = createdDate ?? DateTime.Now;        
     }
     public virtual void DisplayInfo(){
         Console.WriteLine($"{id}, {createdDate}");  
@@ -17,7 +13,7 @@
 }
 class Books : Info{
     string title;
-    public string? Title{get{ return title; } set{ title = value; }}
+    public string Title{get{ return title; } set{ title = value; }}
     public Books(string title, DateTime? createdDate = null) : base(createdDate){
         Title = title;
     }
@@ -27,7 +23,7 @@ class Books : Info{
 }
 class Users : Info{
     string name;
-    public string? Name{get; set;}
+    public string Name{get; set;}
     public Users(string name, DateTime? createdDate = null) : base(createdDate){
         Name = name;
     }
