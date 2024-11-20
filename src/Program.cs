@@ -13,7 +13,7 @@
 }
 class Books : Info{
     string title;
-    public string Title{get{ return title; } set{ title = value; }}
+    public string Title{ get{ return title; } set{ title = value; } }
     public Books(string title, DateTime? createdDate = null) : base(createdDate){
         Title = title;
     }
